@@ -2,7 +2,7 @@
 import CardList from "./CardList.vue"
 
 export default{
-    name:"AppHeader",
+    name:"AppMain",
     components:{
         CardList
     }
@@ -10,12 +10,22 @@ export default{
 </script>
 
 <template>
-    <p>corpo</p>
-    <CardList />
+    <main>
+        <CardList />
+    </main>
 
 
 </template>
 
 <style lang="scss" scoped>
+@use "../styles/partials/variables.scss";
+
+main{
+    background-color: orange;
+    padding: 2rem 2rem 0;
+    height: 500px;
+}
+
+
 
 </style>

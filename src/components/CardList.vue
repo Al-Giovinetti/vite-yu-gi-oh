@@ -10,12 +10,15 @@ export default{
 </script>
 
 <template>
-    <p>container carta</p>
-    <SingleCard />
-
-
+    <div class="container">
+        <SingleCard />
+    </div>
 </template>
 
 <style lang="scss" scoped>
+    div.container{
+        padding: 1rem;
+        background-color: white;
+    }
 
 </style>
