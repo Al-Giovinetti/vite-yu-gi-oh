@@ -23,7 +23,6 @@ export default{
 main{
     background-color: orange;
     padding: 2rem 2rem 0;
-    height: 500px;
 }
 
 

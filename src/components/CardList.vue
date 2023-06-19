@@ -30,9 +30,12 @@ export default{
 </script>
 
 <template>
-    {{ CardList }}
-    <div class="container">
-        <SingleCard />
+    <div class="container flex">
+        <SingleCard v-for="card in CardList" 
+        :name ="card.name"
+        :type="card.type"
+        :image ="card.card_images[0].image_url" 
+         />
     </div>
 </template>
 
@@ -40,6 +43,7 @@ export default{
     div.container{
         padding: 1rem;
         background-color: white;
+        flex-wrap: wrap;
     }
 
 </style>
