@@ -9,7 +9,8 @@ export default{
 
     data(){
         return{
-            CardList:[ ]
+            CardList: [ ],
+            ArchetypeList: [ ],
         }
     },
 
@@ -34,17 +35,28 @@ export default{
         .catch(function (error){
             console.log(error)
         })
+
+        axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php")
+        .then((response) => {
+            console.log(response.data)
+            this.ArchetypeList = response.data
+            console.log(this.ArchetypeList)
+
+        })
+        .catch(function (error){
+            console.log(error)
+        })
     }
-
-
 }
 </script>
 
 <template>
     <main>
-        <CardSearchbar @filter ="getCardArchetye()"/>
+        <CardSearchbar @filter ="getCardArchetye()" 
+         :myarchetypelist ="ArchetypeList"
+        />
         <CardList
-            :list = "CardList" 
+            :mycardlist = "CardList" 
          />
     </main>
 

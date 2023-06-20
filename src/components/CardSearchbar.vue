@@ -1,6 +1,15 @@
 <script>
     export default{
-        name:"CardSearchbar"
+        name:"CardSearchbar",
+
+        data(){
+            return{
+            }
+        },
+
+        props: {
+            myarchetypelist : Array,
+        }
     }
 
 </script>
@@ -8,11 +17,10 @@
 <template>
     <div>
         <span>select your archetype</span>
-        <select name="archetype" id="archetype" @keyup.enter="$emit(filter)">
-            <option value="1">Alien</option>
-            <option value="2">Melodious</option>
-            <option value="3">Archfiend</option>
-            <option value="4">Elemental HERO</option>
+        <select @keyup.enter="$emit(filter)">
+            <option :value="index" v-for="(archetype, index) in myarchetypelist">
+                {{ archetype.archetype_name }}
+            </option>
         </select>
     </div>
 

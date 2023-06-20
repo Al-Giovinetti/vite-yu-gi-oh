@@ -15,7 +15,7 @@ export default{
     },
 
     props:{
-        list: Object,
+        mycardlist: Object,
     }
 
 }
@@ -23,7 +23,7 @@ export default{
 
 <template>
     <div class="container flex">
-        <SingleCard v-for="card in list" 
+        <SingleCard v-for="card in mycardlist" 
         :name ="card.name"
         :type="card.type"
         :image ="card.card_images[0].image_url" 
