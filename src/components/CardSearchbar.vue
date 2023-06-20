@@ -4,12 +4,17 @@
 
         data(){
             return{
+                selected : " "
             }
         },
 
         props: {
             myarchetypelist : Array,
-        }
+        },
+
+        methods(){
+
+         }         
     }
 
 </script>
@@ -17,11 +22,12 @@
 <template>
     <div>
         <span>select your archetype</span>
-        <select @keyup.enter="$emit(filter)">
-            <option :value="index" v-for="(archetype, index) in myarchetypelist">
+        <select @keyup.enter="$emit(filter,selected)" v-model="selected">
+            <option v-for="(archetype) in myarchetypelist">
                 {{ archetype.archetype_name }}
             </option>
         </select>
+        <span>{{ selected }}</span>
     </div>
 
 </template>

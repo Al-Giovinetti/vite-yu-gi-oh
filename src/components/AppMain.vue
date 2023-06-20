@@ -11,6 +11,8 @@ export default{
         return{
             CardList: [ ],
             ArchetypeList: [ ],
+            UrlApiCards: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0",
+            UrlApiArchetypes:"https://db.ygoprodeck.com/api/v7/archetypes.php"
         }
     },
 
@@ -20,27 +22,31 @@ export default{
     },
 
     methods:{
-        getCardArchetye(){
+        getCards(){
+            axios.get(this.UrlApiCards)
+            .then((response) => {
+                console.log(response)
+                this.CardList = response.data.data
+            })
+            .catch(function (error){
+                console.log(error)
+            })
+        },
+
+        getCardsArchetye(){
 
         }
 
     },
 
     created() {
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=25&offset=0")
-        .then((response) => {
-            console.log(response)
-            this.CardList = response.data.data
-        })
-        .catch(function (error){
-            console.log(error)
-        })
+        this.getCards(),
 
-        axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php")
+        axios.get(this.UrlApiArchetypes)
         .then((response) => {
             console.log(response.data)
             this.ArchetypeList = response.data
-            console.log(this.ArchetypeList)
+            //console.log(this.ArchetypeList)
 
         })
         .catch(function (error){
