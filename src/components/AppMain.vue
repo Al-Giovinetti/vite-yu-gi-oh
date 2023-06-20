@@ -1,16 +1,20 @@
 <script>
 import CardList from "./CardList.vue"
+import CardSearchbar from "./CardSearchbar.vue"
+
 
 export default{
     name:"AppMain",
     components:{
-        CardList
+        CardList,
+        CardSearchbar,
     }
 }
 </script>
 
 <template>
     <main>
+        <CardSearchbar />
         <CardList />
     </main>
 
