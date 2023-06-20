@@ -1,6 +1,5 @@
 <script>
 import SingleCard from "./SingleCard.vue";
-import axios from "axios";
 
 export default{
     name:"CardList",
@@ -15,15 +14,8 @@ export default{
         SingleCard
     },
 
-    created(){
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=25&offset=0")
-        .then((response) => {
-            console.log(response)
-            this.CardList = response.data.data
-        })
-        .catch(function (error){
-            console.log(error)
-        })
+    props:{
+        list: Object,
     }
 
 }
@@ -31,7 +23,7 @@ export default{
 
 <template>
     <div class="container flex">
-        <SingleCard v-for="card in CardList" 
+        <SingleCard v-for="card in list" 
         :name ="card.name"
         :type="card.type"
         :image ="card.card_images[0].image_url" 
