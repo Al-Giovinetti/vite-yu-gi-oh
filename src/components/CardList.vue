@@ -5,7 +5,7 @@ import axios from "axios";
 export default{
     name:"CardList",
 
-    dat(){
+    data(){
         return{
             CardList:[ ],
         }
@@ -16,9 +16,9 @@ export default{
     },
 
     created(){
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
+        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=25&offset=0")
         .then((response) => {
-            console.log(response.data.data)
+            console.log(response)
             this.CardList = response.data.data
         })
         .catch(function (error){
@@ -35,7 +35,7 @@ export default{
         :name ="card.name"
         :type="card.type"
         :image ="card.card_images[0].image_url" 
-         />
+        />
     </div>
 </template>
 

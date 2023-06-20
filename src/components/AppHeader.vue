@@ -7,7 +7,7 @@ export default{
 
 <template>
     <header class="flex">
-        <img src="" alt="">aaaaaa
+        <img src="" alt="">aaaaa
         <h1>Yu-Gi-Oh Api</h1>
     </header>
 
