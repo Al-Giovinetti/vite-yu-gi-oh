@@ -18,6 +18,13 @@ export default{
         CardSearchbar,
     },
 
+    methods:{
+        getCardArchetye(){
+
+        }
+
+    },
+
     created() {
         axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=25&offset=0")
         .then((response) => {
@@ -35,10 +42,10 @@ export default{
 
 <template>
     <main>
-        <CardSearchbar />
+        <CardSearchbar @filter ="getCardArchetye()"/>
         <CardList
             :list = "CardList" 
-        />
+         />
     </main>
 
 

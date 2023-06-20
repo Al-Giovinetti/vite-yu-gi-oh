@@ -8,7 +8,7 @@
 <template>
     <div>
         <span>select your archetype</span>
-        <select name="archetype" id="archetype">
+        <select name="archetype" id="archetype" @keyup.enter="$emit(filter)">
             <option value="1">Alien</option>
             <option value="2">Melodious</option>
             <option value="3">Archfiend</option>
